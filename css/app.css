@@ -1,0 +1,40 @@
+
+h1 {
+text-align: center;
+}
+
+.performence {
+  border: 1px solid;
+  text-align: center;
+  padding-block: 20px;
+  padding-inline: 10px;
+}
+.performence ul{
+  list-style-type: none;
+} 
+.performence li {
+  display: inline;
+  justify-content: center;
+  padding: 10px;
+}
+.levels {
+  text-align: center;
+  padding-block: 20px;
+}
+
+table{
+  margin: auto;
+}
+table, th, td {
+  border: 1px solid;
+}
+td {
+width: 70px;
+height: 70px;
+text-align: center;
+}
+
+
+
+
+
