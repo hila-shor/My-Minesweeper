@@ -38,13 +38,20 @@ var gTimerInterval = null
 ///////////////////////////////////FUNCTIONS//////////////////////////////////////////////////
 
 function initGame() {
+  gGame.isOn = true
   gGame.clickcount = 0
+  gGame.shownCount = 0
+  gGame.markedCount = 0
+  gGame.isMinesRender = false
   resetTimer()
   gBoard = buildBoard()
   console.log(gBoard)
   renderBoard(gBoard)
   console.log('gBoard after negs update : ', gBoard)
   console.log(gBoard)
+  // change smiley
+  var elSmiley = document.querySelector('.smiley')
+  elSmiley.innerText = NORMAL
 }
 function onMouseUp(eve, elbtd, i, j) {
 
