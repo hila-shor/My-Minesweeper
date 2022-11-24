@@ -12,20 +12,22 @@
   <h1>Mine Sweeper</h1>
   <div class="frame">
     <div class="levels">
-      <button  class="btn Beginner" onclick="upDategLevel(4,2)">Beginner</button>
-      <button class="btn Medium " onclick="upDategLevel(8,14)">Medium </button>
-      <button class="btn Expert" onclick="upDategLevel(12,32)">Expert </button>
+      <button  class="btn Beginner" onclick="updateLevel(4,2)">Beginner</button>
+      <button class="btn Medium " onclick="updateLevel(8,14)">Medium </button>
+      <button class="btn Expert" onclick="updateLevel(12,32)">Expert </button>
     </div>
       <ul class="performence" >
         <li class="score">score: <span>00</span></li>
         <li class="smiley" ><button onclick="">😊</button></li>
-        <li class="timer">timer: <span class="min">00</span><span>:</span><span class="sec">00</span></li>
+        <li class="headerTimer">timer:</li>
+        <li class="timer"></li>
       </ul>
     
-      <div class="game-board" >
+      <div class="game-board" onContextMenu="return false" >
         <!-- onmouseup="test(event)" -->
       </div>
   </div>
+
     
   <script src="js/utils.js"></script>
   <script src="js/game.js"></script>
