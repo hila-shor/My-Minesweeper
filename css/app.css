@@ -1,25 +1,52 @@
-h1 {
-text-align: center;
+body {
+  background-image: url("/soldierWithFleg-nobg.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-color:#f3efe7; 
+  background-position: 80% 20%;
 }
 
-.performence {
-  border: 1px solid;
+h1 {
   text-align: center;
-  padding-block: 20px;
-  padding-inline: 10px;
 }
-.performence ul{
-  list-style-type: none;
-} 
-.performence li {
-  display: inline;
-  justify-content: center;
-  padding: 10px;
-}
+
 .levels {
   text-align: center;
   padding-block: 20px;
 }
+.levels button{
+  background-color:#8c7c6b ;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 120px;
+}
+
+.performence {
+  text-align: center;
+  padding-block: 10px;
+  padding-inline: 10px;
+  color: black;
+  font-weight: 600;
+  font-size: medium;
+  background-color: rgb(92, 100, 95, 0.5);
+  margin-block-end: 10px;
+}
+.performence p {
+  display: inline;
+  padding-inline-start:7px;
+}
+
+.lives{
+  display: inline;
+  padding-inline-end: 30px;
+
+}
+
+.hint {
+  display: inline;
+  padding-inline-start:30px;
+}
+
 
 table{
   margin: auto;
@@ -28,12 +55,17 @@ table, th, td {
   border: 1px solid;
 }
 td {
-width: 70px;
-height: 70px;
-text-align: center;
+  width:40px;
+  height: 40px;
+  text-align: center;
 }
 
-
+.footer{
+  font-weight: bold;
+  text-align: center; 
+  margin-block:20px;
+  color: #5c645f;
+}
 
 
 
