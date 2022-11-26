@@ -211,9 +211,11 @@ function hintHideNegs(shownpos) {
     var locJ = shownpos[i].j
     gBoard[locI][locJ].isShown = false
   }
+  gGame.isHint = false
   console.log('in the timeout hint')
-  setHint()
   renderBoard(gBoard)
+  setHint()
+  console.log(gGame.isHint)
 }
 
 //Lives 
