@@ -16,11 +16,22 @@ const COVER = '-'
 
 //global vairiable
 var gBoard
+var gPosMines = []
 const gLevel = {
   size: 4,
   mines: 4
 }
 const gLevels = [{ size: 4, mines: 4 }, { size: 8, mines: 14 }, { size: 12, mines: 32 },]
+const gIsLevel = {
+  isBeginner: true,
+  isMedium: false,
+  isExpert: false
+}
+const gBestGameTime = {
+  min: Infinity,
+  sec: Infinity
+}
+
 const gGame = {
   isOn: true,
   notMineShownCount: 0,
@@ -30,10 +41,10 @@ const gGame = {
   isMinesRender: false,
   livesCounter: 3,
   isHint: false,
-  hintsCounter: 3
-
+  hintsCounter: 3,
+  bestGameTime: { min: 0, sec: 0 }
 }
-const gPosMines = []
+
 
 //timer globals
 var gTimerInterval = null
@@ -42,8 +53,8 @@ var gTimerInterval = null
 //PLAY THE GAME
 
 function onInitGame() {
-
-
+  console.log('gBestGameTime: ', gBestGameTime)
+  gIsLevel.isBeginner = true
   gGame.isOn = true
   gGame.clickcount = 0
   gGame.notMineShownCount = 0
@@ -52,6 +63,7 @@ function onInitGame() {
   gGame.livesCounter = 3
   gGame.isHint = false
   gGame.hintsCounter = 3
+  gPosMines = []
 
   resetTimer()
   gBoard = buildBoard()
@@ -139,12 +151,13 @@ function onCellClicked(elCell, i, j) {
 
   //UPDATE MODEL:
   gBoard[i][j].isShown = true
-  gGame.notMineShownCount++
+  if (!gBoard[i][j].isMine) gGame.notMineShownCount++
+
   console.log(gGame.notMineShownCount)
 
   //lives management
   if (gBoard[i][j].isMine) {
-    gGame.notMineShownCount--
+    // gGame.notMineShownCount--
     gGame.livesCounter--
     setLives()
     if (checkGameOver()) gameOver()
@@ -264,9 +277,16 @@ function winGame() {
   // change smiley
   var elSmiley = document.querySelector('.smiley')
   elSmiley.innerText = WIN
-  //stop the timer
+
+  //stop the timer update best game time
   stopTimer()
+  getBestGameTime()
+
+
+  //unable onclick after a loss
+  gGame.isOn = false
 }
+
 
 //Lose
 function checkGameOver(posi, posj) {
@@ -290,11 +310,12 @@ function gameOver() {
     //stop timer
     stopTimer()
 
+
     // change smiley
     var elSmiley = document.querySelector('.smiley')
     elSmiley.innerText = LOSE
 
-    //TO DO: unable onclick after lose
+    //unable onclick after a loss
     gGame.isOn = false
     console.log(' gGame.isOn: ', gGame.isOn)
   }

@@ -12,9 +12,9 @@
   <h1>MineSweeper</h1>
   
   <div class="levels">
-    <button  class="btn Beginner" onclick="onUpdateLevel(4,2)">Beginner</button>
-    <button class="btn Medium " onclick="onUpdateLevel(8,14)">Medium </button>
-    <button class="btn Expert" onclick="onUpdateLevel(12,32)">Expert </button>
+    <button  class="btn Beginner" onclick="onUpdateLevel(gLevels[0].size, gLevels[0].mines, this)">Beginner</button>
+    <button class="btn Medium " onclick="onUpdateLevel(gLevels[1].size, gLevels[1].mines, this)">Medium </button>
+    <button class="btn Expert" onclick="onUpdateLevel(gLevels[2].size, gLevels[2].mines, this)">Expert </button>
   </div>
 
   <div class="performence">

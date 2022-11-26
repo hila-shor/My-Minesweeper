@@ -2,9 +2,14 @@
 //GAME SETTING
 
 //Level
-function onUpdateLevel(size, mines) {
+function onUpdateLevel(size, mines, elbtn) {
   gLevel.size = size
   gLevel.mines = mines
+  //update g-variable witch level the player is playing
+  if (elbtn.innerText === 'Medium') gIsLevel.isMedium = true
+  else if (elbtn.innerText === 'Beginner') gIsLevel.isBeginner = true
+  else if (elbtn.innerText === 'Expert') gIsLevel.isExpert = true
+
   onInitGame()
 
 }
@@ -147,4 +152,30 @@ function resetTimer() {
 
   const elTimer = document.querySelector('.timer')
   elTimer.innerHTML = toHHMMSS('' + gGame.secsPassed)
+}
+
+function getBestGameTime() {
+  console.log('from best time :>> ');
+  //check best game time for beginners
+  var currTimer = document.querySelector('.timer').innerText
+  //save the split result 
+  var min = +currTimer.split(':')[0]
+  var sec = +currTimer.split(':')[1]
+  console.log('min :>> ', min);
+  console.log('sec :>> ', sec);
+  //check the best game time and update the g-variable
+  if (min < gBestGameTime.min) {
+    gBestGameTime.min = min
+    gBestGameTime.sec = sec
+  }
+  // }else{
+  //   gBestGameTime.min=  gBestGameTime.min
+  //   gBestGameTime.sec= gBestGameTime.sec
+  // }
+
+  if (min === gBestGameTime.min && sec < gBestGameTime.sec) {
+    gBestGameTime.min = min
+    gBestGameTime.sec = sec
+  }
+  console.log(gBestGameTime)
 }
