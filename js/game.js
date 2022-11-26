@@ -147,7 +147,10 @@ function onCellClicked(elCell, i, j) {
   console.log(gGame.clickcount)
 
   //hint
-  if (gGame.isHint) hintRevealNegs(gBoard, i, j)
+  if (gGame.isHint) {
+    hintRevealNegs(gBoard, i, j)
+    gGame.notMineShownCount--
+  }
 
   //UPDATE MODEL:
   gBoard[i][j].isShown = true
